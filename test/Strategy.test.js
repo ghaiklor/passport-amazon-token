@@ -129,12 +129,12 @@ describe('AmazonTokenStrategy:userProfile', function () {
       if (error) return done(error);
 
       assert.equal(profile.provider, 'amazon');
-      assert.equal(profile.id, '');
-      assert.equal(profile.displayName, '');
+      assert.equal(profile.id, 'amzn1.account.XXX00XXXXXXXXXX0XXXXXXXXXXXX');
+      assert.equal(profile.displayName, 'Eugene Obrezkov');
       assert.equal(profile.name.familyName, '');
       assert.equal(profile.name.givenName, '');
-      assert.deepEqual(profile.emails, []);
-      assert.equal(profile.photos[0].value, '');
+      assert.deepEqual(profile.emails, [{value: 'ghaiklor@gmail.com'}]);
+      assert.deepEqual(profile.photos, []);
       assert.equal(typeof profile._raw, 'string');
       assert.equal(typeof profile._json, 'object');
 
