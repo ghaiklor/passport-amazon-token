@@ -19,7 +19,7 @@ describe('AmazonTokenStrategy:init', () => {
   it('Should properly initialize', () => {
     let strategy = new AmazonTokenStrategy(STRATEGY_CONFIG, BLANK_FUNCTION);
 
-    assert.equal(strategy.name, 'google-plus-token');
+    assert.equal(strategy.name, 'amazon-token');
     assert(strategy._oauth2._useAuthorizationHeaderForGET);
   });
 
@@ -134,13 +134,10 @@ describe('AmazonTokenStrategy:userProfile', () => {
     strategy.userProfile('accessToken', (error, profile) => {
       if (error) return done(error);
 
-      assert.equal(profile.provider, 'google-plus');
-      assert.equal(profile.id, '103819813774047251222');
-      assert.equal(profile.displayName, 'Andrew Orel');
-      assert.equal(profile.name.familyName, 'Orel');
-      assert.equal(profile.name.givenName, 'Andrew');
-      assert.deepEqual(profile.emails, []);
-      assert.equal(profile.photos[0].value, 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50');
+      assert.equal(profile.provider, 'amazon');
+      assert.equal(profile.id, 'amzn1.account.XXX00XXXXXXXXXX0XXXXXXXXXXXX');
+      assert.equal(profile.displayName, 'Eugene Obrezkov');
+      assert.deepEqual(profile.emails, [{value: 'ghaiklor@gmail.com'}]);
       assert.equal(typeof profile._raw, 'string');
       assert.equal(typeof profile._json, 'object');
 
@@ -177,10 +174,8 @@ describe('AmazonTokenStrategy:userProfile', () => {
 
     sinon.stub(strategy._oauth2, 'get', (url, accessToken, done) => done({
       data: JSON.stringify({
-        error: {
-          message: 'MESSAGE',
-          code: 'CODE'
-        }
+        error_description: 'MESSAGE',
+        error: 'CODE'
       })
     }, 'not a JSON', null));
 
@@ -188,27 +183,6 @@ describe('AmazonTokenStrategy:userProfile', () => {
       assert.equal(error.message, 'MESSAGE');
       assert.equal(error.oauthError, 'CODE');
       assert.equal(typeof profile, 'undefined');
-      done();
-    });
-  });
-
-  it('Should properly parse profile with empty response', done => {
-    let strategy = new AmazonTokenStrategy(STRATEGY_CONFIG, BLANK_FUNCTION);
-
-    sinon.stub(strategy._oauth2, 'get', (url, accessToken, done) => done(null, JSON.stringify({}), null));
-
-    strategy.userProfile('accessToken', (error, profile) => {
-      assert.deepEqual(profile, {
-        provider: 'google-plus',
-        id: undefined,
-        displayName: '',
-        name: {familyName: '', givenName: ''},
-        emails: [],
-        photos: [{value: ''}],
-        _raw: '{}',
-        _json: {}
-      });
-
       done();
     });
   });
