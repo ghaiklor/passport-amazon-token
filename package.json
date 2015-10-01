@@ -2,7 +2,7 @@
   "name": "passport-amazon-token",
   "version": "1.2.0",
   "description": "Passport strategy for authenticating with Amazon via OAuth2 access tokens",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "istanbul cover _mocha"
   },

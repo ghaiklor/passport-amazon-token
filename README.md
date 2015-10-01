@@ -1,6 +1,13 @@
 # passport-amazon-token
 
-![Build Status](https://img.shields.io/travis/ghaiklor/passport-amazon-token.svg) ![Coverage](https://img.shields.io/coveralls/ghaiklor/passport-amazon-token.svg) ![Downloads](https://img.shields.io/npm/dm/passport-amazon-token.svg) ![npm version](https://img.shields.io/npm/v/passport-amazon-token.svg) ![dependencies](https://img.shields.io/david/ghaiklor/passport-amazon-token.svg) ![dev dependencies](https://img.shields.io/david/dev/ghaiklor/passport-amazon-token.svg) ![License](https://img.shields.io/npm/l/passport-amazon-token.svg)
+![Build Status](https://img.shields.io/travis/ghaiklor/passport-amazon-token.svg)
+![Coverage](https://img.shields.io/coveralls/ghaiklor/passport-amazon-token.svg)
+![Downloads](https://img.shields.io/npm/dm/passport-amazon-token.svg)
+![Downloads](https://img.shields.io/npm/dt/passport-amazon-token.svg)
+![npm version](https://img.shields.io/npm/v/passport-amazon-token.svg)
+![dependencies](https://img.shields.io/david/ghaiklor/passport-amazon-token.svg)
+![dev dependencies](https://img.shields.io/david/dev/ghaiklor/passport-amazon-token.svg)
+![License](https://img.shields.io/npm/l/passport-amazon-token.svg)
 
 [Passport](http://passportjs.org/) strategy for authenticating with Amazon access tokens using the OAuth 2.0 API.
 
