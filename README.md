@@ -64,7 +64,11 @@ module.exports = {
 };
 ```
 
-The POST request to this route should include a JSON object with the keys `access_token` and optionally, `refresh_token` set to the credentials you receive from Amazon.
+The request to this route should include GET or POST data with the keys `access_token` and optionally, `refresh_token` set to the credentials you receive from Amazon.
+
+```
+GET /auth/amazon?access_token=<TOKEN>
+```
 
 ## Issues
 
