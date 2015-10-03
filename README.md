@@ -28,6 +28,8 @@ The Amazon authentication strategy authenticates users using a Amazon account an
 The strategy requires a `verify` callback, which accepts these credentials and calls `next` providing a user, as well as `options` specifying a app ID and app secret.
 
 ```javascript
+var AmazonTokenStrategy = require('passport-amazon-token');
+
 passport.use(new AmazonTokenStrategy({
     clientID: AMAZON_CLIENT_ID,
     clientSecret: AMAZON_CLIENT_SECRET,
