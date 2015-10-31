@@ -1,5 +1,6 @@
 {
   "name": "passport-amazon-token",
+  "version": "0.0.0-semantic-release",
   "description": "Passport strategy for authenticating with Amazon via OAuth2 access tokens",
   "main": "lib/index.js",
   "scripts": {
